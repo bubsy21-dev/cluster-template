@@ -1,6 +1,6 @@
 # ⛵ Cluster Template
 
-Welcome to my template designed for deploying a single Kubernetes cluster. Whether you're setting up a cluster at home on bare-metal or virtual machines (VMs), this project aims to simplify the process and make Kubernetes more accessible. This template is inspired by onedr0p [cluster-template](https://github.com/onedr0p/cluster-template) repository, providing a practical starting point for anyone interested in managing their own Kubernetes environment.
+Welcome to my template designed for deploying a single Kubernetes cluster. Whether you're setting up a cluster at home on bare-metal or virtual machines (VMs), this project aims to simplify the process and make Kubernetes more accessible. This template is HEAVILY based on a [fork](https://github.com/ajaykumar4/cluster-template) of the onedr0p [cluster-template](https://github.com/onedr0p/cluster-template) repository, providing a practical starting point for anyone interested in managing their own Kubernetes environment.
 
 At its core, this project leverages [makejinja](https://github.com/mirkolenz/makejinja), a powerful tool for rendering templates. By reading configuration files—such as [cluster.yaml](./cluster.sample.yaml) and [nodes.yaml](./nodes.sample.yaml)—Makejinja generates the necessary configurations to deploy a Kubernetes cluster with the following features:
 
@@ -20,7 +20,7 @@ A Kubernetes cluster deployed with [Talos Linux](https://github.com/siderolabs/t
 **Other features include:**
 
 - Dev env managed w/ [mise](https://mise.jdx.dev/)
-- Workflow automation w/ [GitHub Actions](https://github.com/features/actions)
+- Workflow automation w/ [Github Actions](https://github.com/features/actions)
 - Dependency automation w/ [Renovate](https://www.mend.io/renovate)
 
 Does this sound cool to you? If so, continue to read on! 👇
@@ -39,11 +39,11 @@ There are **5 stages** outlined below for completing this project, make sure you
 > |---------|----------|---------------|---------------------------|
 > | Control/Worker | 4 | 16GB | 256GB SSD/NVMe |
 
-1. Head over to the [Talos Linux Image Factory](https://factory.talos.dev) and follow the instructions. Be sure to only choose the **bare-minimum system extensions** as some might require additional configuration and prevent Talos from booting without it. You can always add system extensions after Talos is installed and working.
+1. Head over to the [Talos Linux Image Factory](https://factory.talos.dev) and follow the instructions. Be sure to only choose the **bare-minimum system extensions** as some might require additional configuration and prevent Talos from booting without it (I ADDED qemu-guest-agent extension to my image; if issues arise its noted here). You can always add system extensions after Talos is installed and working.
 
 2. This will eventually lead you to download a Talos Linux ISO (or for SBCs a RAW) image. Make sure to note the **schematic ID** you will need this later on.
 
-3. Flash the Talos ISO or RAW image to a USB drive and boot from it on your nodes.
+3. Go to the [homelab-infrastructure](https://gitlab.com/bubsy21/homelab-infrastructure) repo to configure the 3 control planes - install/configure proxmox, deploy talos VM's etc
 
 4. Verify with `nmap` that your nodes are available on the network. (Replace `192.168.1.0/24` with the network your nodes are on.)
 
@@ -421,4 +421,4 @@ If this repo is too hot to handle or too cold to hold check out these following 
 
 ## 🤝 Thanks
 
-Big shout out to [onedr0p](https://github.com/onedr0p)
+Big shout out to [onedr0p](https://github.com/onedr0p) and [ajaykumar4](https://github.com/ajaykumar4)
