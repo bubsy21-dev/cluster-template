@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: "https://github.com/bubsy21/cluster-template.git"
       path: kubernetes/apps/kube-system/coredns
-      targetRevision: main
+      targetRevision: template
       ref: repo
     - repoURL: ghcr.io/coredns/charts
       chart: coredns

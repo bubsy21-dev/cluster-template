@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: "https://github.com/bubsy21/cluster-template.git"
       path: kubernetes/apps/network/k8s-gateway
-      targetRevision: main
+      targetRevision: template
       ref: repo
     - repoURL: https://ori-edge.github.io/k8s_gateway
       chart: k8s-gateway

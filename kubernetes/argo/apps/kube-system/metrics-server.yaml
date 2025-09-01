@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: "https://github.com/bubsy21/cluster-template.git"
       path: kubernetes/apps/kube-system/metrics-server
-      targetRevision: main
+      targetRevision: template
       ref: repo
     - repoURL: https://kubernetes-sigs.github.io/metrics-server
       chart: metrics-server

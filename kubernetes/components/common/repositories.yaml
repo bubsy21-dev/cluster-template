@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: "https://github.com/bubsy21/cluster-template.git"
     path: kubernetes/argo/repositories
-    targetRevision: main
+    targetRevision: template
   destination:
     name: in-cluster
     namespace: argo-system

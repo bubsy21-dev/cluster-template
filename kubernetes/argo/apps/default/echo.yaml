@@ -11,7 +11,7 @@ spec:
   sources:
     - repoURL: "https://github.com/bubsy21/cluster-template.git"
       path: kubernetes/apps/default/echo
-      targetRevision: main
+      targetRevision: template
       ref: repo
     - repoURL: ghcr.io/bjw-s-labs/helm
       chart: app-template

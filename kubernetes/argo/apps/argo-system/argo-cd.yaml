@@ -13,7 +13,7 @@ spec:
   sources:
     - repoURL: "https://github.com/bubsy21/cluster-template.git"
       path: kubernetes/apps/argo-system/argo-cd
-      targetRevision: main
+      targetRevision: template
       ref: repo
     - repoURL: ghcr.io/argoproj/argo-helm
       chart: argo-cd
