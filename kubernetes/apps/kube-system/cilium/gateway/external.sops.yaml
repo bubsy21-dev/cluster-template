@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=https://github.com/datreeio/CRDs-catalog/raw/refs/heads/main/gateway.networking.k8s.io/gateway_v1.json
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: external
+  annotations:
+    external-dns.alpha.kubernetes.io/target: external.bubsybox.dev
+spec:
+  gatewayClassName: cilium
+  addresses:
+    - type: IPAddress
+      value: 10.0.99.12
+  infrastructure:
+    annotations:
+      external-dns.alpha.kubernetes.io/hostname: external.bubsybox.dev
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+      hostname: '*.bubsybox.dev'
+      allowedRoutes:
+        namespaces:
+          from: Same
+    - name: https
+      protocol: HTTPS
+      port: 443
+      hostname: '*.bubsybox.dev'
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        certificateRefs:
+          - kind: Secret
+            name: bubsybox-dev-production-tls
+sops:
+  age:
+    - recipient: age1wvmqsclxt9s2xaqc0rarsyp5d76jg4rh5zawterhkzjm2wvz8uxswff94q
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBUUEdFc1JsRzkvcnJxb2J3
+        eTMwKzhwem5EK1V1aGZ2MCtCaE55MUFSdFg0CjhFdDJpZEpFUTc1dHBsUmtDajF0
+        c0hjRGxMWVlwNWE0elljV1pmYmZ1cjAKLS0tIFlxeFRTVlo0bW9ZK1VNVzRhZ3kx
+        aFRXdElyUVNOekVmZndmTWlMeG4wcWsKFagLiSoZMnqZ2Ci48H8ZvwkcHYQbMF5C
+        WehQFPg950vSZX9ywzOKF7MFUCyywuJj8tvgBEUFwI7Wa9ozxl/mSQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-09-01T18:35:39Z"
+  mac: ENC[AES256_GCM,data:tO4BUOPuY6d3YvmQHNvRQjAPsF1PHMAtW4CLKETqKFzpNYTHGvWqVw2ABc79EZmm2w4JLUIMqZjfnBS6c9lTnCK/g9LjgT1o52dfLi2gTEvLiZaf+6+o76xBtsuw5W2/E0rhynwv3IAoG7eKWETlE3sN2korqVirZfTHfE4d8r0=,iv:moCzZtNLsPDMRTAdvTsBwVWExiLoqgjS3IJoi2CuAXU=,tag:arKUY6yV+I2tuhtBKON7VA==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.10.2

@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/cert-manager.io/certificate_v1.json
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: bubsybox-dev-production
+spec:
+  secretName: bubsybox-dev-production-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: bubsybox.dev
+  dnsNames:
+    - bubsybox.dev
+    - '*.bubsybox.dev'
+sops:
+  age:
+    - recipient: age1wvmqsclxt9s2xaqc0rarsyp5d76jg4rh5zawterhkzjm2wvz8uxswff94q
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBHT0lGbkMvTkZEWTdqNUNo
+        K2Y2eXI1UkxQMHFiclpyV1JycWxvaHV0eFJ3CllKQUtONHkxYkk5cHFSa0xyS0VW
+        QzlPZXpmRzJIdUg3a0JJaFdXMC8zc28KLS0tIEJudmpnY1A2Q1lZMGlWWWk2MUxR
+        aVZyeWJUN2NzMjZiYkpZWjJQMVRNaDQK16oIstvgEEjVX5l8ZVCMLbJnZV9gLDb3
+        w1jM28H7EFBwde6zA5GmEWaLtFVbXZQD62dvChSc0XYkR48MZdwHtQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-09-01T18:35:39Z"
+  mac: ENC[AES256_GCM,data:JrjQPtWCyVk5TVKlvS+SzBSTrfEsYB6ZhI2u2HjcKYlpFw3GgBAHbprlEknOAfy4WhhznYpaedrBuKiKwgNKnlq6HkSMiDbudvaHxRBauddTsFoJdOsTkaKVAEJM7xbOMxhHTDx5vWVtnQD0RRGbS2BhvMw59h1ELrO9nSXIjJU=,iv:ux6WBA0ZvV/ObmuY6Y03/On+oQLysK0gnB5+2FeVAY0=,tag:iWUMAr8qxrMM/T5hDV277Q==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.10.2
